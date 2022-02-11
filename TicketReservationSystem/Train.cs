@@ -147,9 +147,15 @@ namespace TicketReservationSystem
             if (station != null && !stops.Contains(station))
             {
                 this.stops.Add(station);
-                totalDistance += TrainStation.DistanceBetween(station, stops[^2]);
+                totalDistance = 0;
+                for (int i = 0; i < stops.Count - 1; i++)
+                {
+                    totalDistance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
+                }
+
                 TimeSpan duration = TimeSpan.FromHours(0.001 * totalDistance / AverageSpeed);
-                arrival_time  += duration;
+
+                arrival_time = departure_time + duration;
                 return true;
             }
             else
@@ -163,6 +169,15 @@ namespace TicketReservationSystem
             {
 
                 this.stops.Insert(stops.IndexOf(existing_station)+1, required_station);
+                totalDistance = 0;
+                for (int i = 0; i < stops.Count - 1; i++)
+                {
+                    totalDistance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
+                }
+
+                TimeSpan duration = TimeSpan.FromHours(0.001 * totalDistance / AverageSpeed);
+
+                arrival_time = departure_time + duration;
                 return true;
             }
             else
