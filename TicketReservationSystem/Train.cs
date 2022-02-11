@@ -21,7 +21,7 @@ namespace TicketReservationSystem
         {
             id = _id;
             seats = new();
-            for(int i = 1; i<no_first_class+1; i++)
+            for(int i = 1; i < no_first_class + 1; i++)
             {
                 seats.Add(new FirstClassSeat(i));
             }
