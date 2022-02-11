@@ -288,7 +288,7 @@ namespace TicketReservationSystem
                 new TrainStation("El-Minya", 28.08, 30.75)
             };
 
-            DateTime t = DateTime.Now; // to be changed
+            TimeSpan t = TimeSpan.FromHours(hr);
             return admin.AddTrain(id, 100, 100, 60, stations, t);
         }
         internal static bool Deleting_User(Admin admin)

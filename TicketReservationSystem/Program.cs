@@ -15,7 +15,7 @@ namespace TicketReservationSystem
                 DataBase.Users.Add(User);
                 
                 
-                string? Choice = Register_Or_Login();
+                string Choice = Register_Or_Login();
 
                 if (Choice == "register")
                 {
@@ -26,7 +26,7 @@ namespace TicketReservationSystem
                 }
                 else
                 {
-                    User? login = default;
+                    User login = default;
 
                     if (Sign_In(login))
                         Console.WriteLine($"Hello, {login?.Name}");

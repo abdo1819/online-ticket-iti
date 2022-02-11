@@ -54,7 +54,7 @@ namespace TicketReservationSystem
         {
         }
 
-        public bool AddTrain(int _id, int no_first_class, int no_second_class, double avg_speed, List<TrainStation> _stops, DateTime _departureTime)
+        public bool AddTrain(int _id, int no_first_class, int no_second_class, double avg_speed, List<TrainStation> _stops, TimeSpan _departureTime)
         {
 
             Train train = new Train(_id, no_first_class, no_second_class, avg_speed, _stops, _departureTime);
