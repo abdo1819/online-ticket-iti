@@ -14,14 +14,15 @@ namespace TicketReservationSystem
         //TrainStation end_station;
         List<TrainStation> stops;
         double average_speed;
-        DateTime departure_time;
-        DateTime arrival_time;
+        TimeSpan departure_time; //TODO: Add this to UML
+        TimeSpan arrival_time; //TODO: Add this to UML
+        double totalDistance; //TODO: Add this to UML
 
-        public Train(int _id, int no_first_class, int no_second_class, double avg_speed, List<TrainStation> _stops, DateTime _departureTime)
+        public Train(int _id, int no_first_class, int no_second_class, double avg_speed, List<TrainStation> _stops, TimeSpan _departureTime)
         {
             id = _id;
             seats = new();
-            for(int i = 1; i<no_first_class+1; i++)
+            for (int i = 1; i < no_first_class + 1; i++)
             {
                 seats.Add(new FirstClassSeat(i));
             }
@@ -33,30 +34,44 @@ namespace TicketReservationSystem
             average_speed = avg_speed;
             stops = _stops;
             departure_time = _departureTime;
-            double TotalDistance = 0;
-
+            totalDistance = 0;
             for (int i = 0; i < stops.Count - 1; i++)
             {
-                TotalDistance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
+                totalDistance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
             }
 
-            TimeSpan duration = TimeSpan.FromHours(0.001 * TotalDistance / AverageSpeed);
+            TimeSpan duration = TimeSpan.FromHours(0.001 * totalDistance / AverageSpeed);
 
             arrival_time = departure_time + duration;
-
-
         }
 
         public int ID { get { return id; } set { id = value; } }
         public List<Seat> Seats { get { return seats; } set { this.seats = value; } }
         public List<TrainStation> Stops { get { return this.stops; } set { this.stops = value; } }
         public double AverageSpeed { get { return average_speed; } set { average_speed = value; } }
-        public DateTime DepartureTime { get { return departure_time; } set { departure_time = value; } }
-        public DateTime ArrivalTime { 
-            get 
+        public TimeSpan DepartureTime { get { return departure_time; } set { departure_time = value; } }
+        public TimeSpan ArrivalTime { get { return arrival_time;} }
+        public double TotalDistance { get { return totalDistance; } }
+        public static List<Train> GetAvailableTrains(TrainStation departure, TrainStation arrival)
+        {
+            List<Train> available = new List<Train>();
+            foreach(var train in DataBase.trains)
             {
-                return arrival_time;
-            } 
+                for(int i=0; i<train.stops.Count; i++)
+                {
+                    if(train.stops[i]==departure)
+                    {
+                        for(int j=i+1; j<train.stops.Count;j++)
+                        {
+                            if(train.stops[j]==arrival)
+                            {
+                                available.Add(train);
+                            }
+                        }
+                    }
+                }
+            }
+            return available;
         }
 
         public bool AddToService() // TODO: change AddTrain() to AddToService()
@@ -132,6 +147,9 @@ namespace TicketReservationSystem
             if (station != null && !stops.Contains(station))
             {
                 this.stops.Add(station);
+                totalDistance += TrainStation.DistanceBetween(station, stops[^2]);
+                TimeSpan duration = TimeSpan.FromHours(0.001 * totalDistance / AverageSpeed);
+                arrival_time  += duration;
                 return true;
             }
             else
