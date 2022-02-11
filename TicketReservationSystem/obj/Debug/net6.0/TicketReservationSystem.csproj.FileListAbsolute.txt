@@ -1,0 +1,15 @@
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.exe
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.deps.json
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.runtimeconfig.json
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.dll
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\bin\Debug\net6.0\ref\TicketReservationSystem.dll
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.pdb
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.AssemblyReference.cache
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.AssemblyInfoInputs.cache
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.AssemblyInfo.cs
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.CoreCompileInputs.cache
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.dll
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\ref\TicketReservationSystem.dll
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.pdb
+D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.genruntimeconfig.cache
