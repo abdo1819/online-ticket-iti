@@ -13,3 +13,20 @@ D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\o
 D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\ref\TicketReservationSystem.dll
 D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.pdb
 D:\ITI\UML\Ticket Reservation System\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.genruntimeconfig.cache
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.exe
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.deps.json
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.runtimeconfig.json
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.dll
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\ref\TicketReservationSystem.dll
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\TicketReservationSystem.pdb
+F:\ITI\Courses\UML\Project\TicketReservationSystem\bin\Debug\net6.0\System.Device.Portable.dll
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.AssemblyReference.cache
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.GeneratedMSBuildEditorConfig.editorconfig
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.AssemblyInfoInputs.cache
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.AssemblyInfo.cs
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.CoreCompileInputs.cache
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.CopyComplete
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.dll
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\ref\TicketReservationSystem.dll
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.pdb
+F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.genruntimeconfig.cache

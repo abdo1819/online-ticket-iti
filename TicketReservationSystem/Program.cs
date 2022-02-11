@@ -1,10 +1,12 @@
-﻿namespace RAILWAY_RES_SYS
+﻿
+global using System.Device.Location;
+namespace TicketReservationSystem
 {
     class Program
     {
         public static void Main()
         {
-            while(true)
+            while (true)
             {
                 // creating the admin user
                 var User = new Admin(120, "admin", 23454, "admin@D.com", "admin", "nothing");

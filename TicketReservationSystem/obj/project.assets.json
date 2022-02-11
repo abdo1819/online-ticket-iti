@@ -1,26 +1,56 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "System.Device.Location.Portable/1.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/System.Device.Portable.dll": {}
+        },
+        "runtime": {
+          "lib/System.Device.Portable.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "System.Device.Location.Portable/1.0.0": {
+      "sha512": "VttxozXEleYcK2NiMo7xKMhDCCJbKtjnxcWDmqu703DeceLTI/9jopfEblyZKL0DWHGyOYLEan06yk6Hcv2cXw==",
+      "type": "package",
+      "path": "system.device.location.portable/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/System.Device.Portable.dll",
+        "system.device.location.portable.1.0.0.nupkg.sha512",
+        "system.device.location.portable.nuspec"
+      ]
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "System.Device.Location.Portable >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\DELL\\.nuget\\packages\\": {}
+    "C:\\Users\\Administrator\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
+      "projectUniqueName": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\TicketReservationSystem.csproj",
       "projectName": "TicketReservationSystem",
-      "projectPath": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
-      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\obj\\",
+      "projectPath": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\TicketReservationSystem.csproj",
+      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+      "outputPath": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -45,6 +75,12 @@
     "frameworks": {
       "net6.0": {
         "targetAlias": "net6.0",
+        "dependencies": {
+          "System.Device.Location.Portable": {
+            "target": "Package",
+            "version": "[1.0.0, )"
+          }
+        },
         "imports": [
           "net461",
           "net462",
@@ -63,5 +99,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Device.Location.Portable 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "libraryId": "System.Device.Location.Portable",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
