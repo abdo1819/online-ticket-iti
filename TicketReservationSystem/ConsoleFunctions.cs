@@ -8,6 +8,34 @@ namespace TicketReservationSystem
 {
     internal static class ConsoleFunctions
     {
+        internal static void Signning_Out()
+        {
+            Console.WriteLine("Signning out...");
+            Thread.Sleep(1500);
+            Console.Clear();
+        }
+        internal static void Signning_In(User login)
+        {
+            Console.WriteLine("Signning In...");
+            Thread.Sleep(1000);
+            Console.Clear();
+            Console.WriteLine($"Hello, {login?.Name}");
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
+        internal static void Get_Stations(out string Station_1, out string Station_2)
+        {
+            Console.WriteLine("\nPlease enter the start station for your journey: ");
+            do
+            {
+                Station_1 = Console.ReadLine();
+            } while (Station_1 == null);
+            Console.WriteLine("\nPlease enter the end station for your journey: ");
+            do
+            {
+                Station_2 = Console.ReadLine();
+            } while (Station_2 == null);
+        }
         internal static string CheckPassword()
         {
             string EnteredVal = "";
@@ -146,7 +174,7 @@ namespace TicketReservationSystem
         internal static string Choose_Payment_Method()
         {
             string? Choice;
-            Console.WriteLine($"\nPlease choose your pick-up station: ");
+            Console.WriteLine($"\nPlease choose your payment method: ");
             do
             {
                 Console.WriteLine("[Credit]  [Paypal]  [Mobile Wallet]\n");
@@ -260,6 +288,11 @@ namespace TicketReservationSystem
                 Console.WriteLine("\nPlease Enter the ID of the train to delete: ");
             } while (!int.TryParse(Console.ReadLine(), out id));
 
+            Console.Clear();
+            Console.WriteLine("\nProcessing...");
+            Thread.Sleep(1000);
+            Console.Clear();
+
             foreach (var trn in DataBase.trains)
             {
                 if (trn.ID == id)
@@ -280,7 +313,11 @@ namespace TicketReservationSystem
             {
                 Console.WriteLine("\nPlease Enter the hour of departure: ");
             } while (!int.TryParse(Console.ReadLine(), out hr));
-
+            
+            Console.Clear();
+            Console.WriteLine("\nProcessing...");
+            Thread.Sleep(1000);
+            Console.Clear();
             List<TrainStation> stations = new()
             {
                 new TrainStation("Cairo", 30.0, 31.2),
@@ -299,6 +336,12 @@ namespace TicketReservationSystem
             {
                 Console.WriteLine("\nPlease Enter the user ID to delete: ");
             } while (!int.TryParse(Console.ReadLine(), out id));
+
+            Console.Clear();
+            Console.WriteLine("\nProcessing...");
+            Thread.Sleep(1000);
+            Console.Clear();
+
             foreach (var u in DataBase.Users)
             {
                 if (u.NationalID == id)
@@ -311,17 +354,18 @@ namespace TicketReservationSystem
         internal static int Take_Action()
         {
             int action;
-            Console.WriteLine("\nyou as an admin is previliged to do the following:");
+            Console.Clear();
+            Console.WriteLine("you, as an admin, is previliged to do the following:\n");
             Console.WriteLine("Delete User (1)");
             Console.WriteLine("Add Train (2)");
             Console.WriteLine("Remove Train (3)");
-            Console.WriteLine("Sign Out (Any key)");
-            Console.WriteLine("\nPlease choose what you need: ");
+            Console.WriteLine("Sign Out (0)");
             do
             {
                 Console.WriteLine("\nPlease choose the action: ");
             } while (!int.TryParse(Console.ReadLine(), out action));
-
+            
+            Console.Clear();
             return action;
         }
 

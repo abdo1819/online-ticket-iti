@@ -69,7 +69,6 @@ namespace TicketReservationSystem
 
         public int Phone { get; set; }
         public String Password { get; set; }
-        
         public bool ProcessPayment(int amount)
         {
             Console.WriteLine("Proccessing...");
