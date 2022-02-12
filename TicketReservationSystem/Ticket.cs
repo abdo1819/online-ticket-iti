@@ -5,39 +5,38 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TicketReservationSystem
-//namespace RAILWAY_RES_SYS
 {
     internal class Ticket
     {
-        private string id;
-        private decimal price;
-        //private Passenger owner;
-        private DateTime purchaseDate=DateTime.Now;
-        //DateTime dateTime = DateTime.UtcNow.Date;
-        private Seat seat;
-        //private IPaymentMethod? paymentMethod;
-        private Journey? journey;
-
-        public string Id { get; set; }
+        public string ID { get; set; }
         public decimal Price { get; set; }
-        //public DateTime PurchaseDate { get; }
+        public Passenger Owner { get; set; }
+        public DateTime PurchaseDate { get; set; }
 
-        public Ticket(string _id,decimal _price,Journey _journey,Seat _seat)
+        // TODO: Remove seat from ticket, add it to journey
+        public IPaymentMethod PaymentMethod { get; set; }
+        public Journey TJourney { get; set; } // TODO:Change name in UML
+
+        public Ticket(string _ID, decimal _Price, Passenger _Owner, DateTime _PurchaseDate, IPaymentMethod _Method, Journey _TJourney)
         {
-            Id = _id;
-            Price = _price;
-            journey = _journey;
-            seat = _seat;
+            ID = _ID;
+            Price = _Price;
+            Owner = _Owner;
+            PurchaseDate = _PurchaseDate;
+            PaymentMethod = _Method;
+            TJourney = _TJourney;
         }
         public override string ToString()
         {
-            return
-                $" ticket#:\t {Id} \n" +
-                $" journey:\t {journey.Name} \n"+
-                $" price:\t\t {Price} L.E \n" +
-                $" your seat:\t {seat.Number} \n"+
-                $" purchaseDate:\t {purchaseDate.ToString("yyyy/MM/dd hh:mm:ss")} \n";
-
+            return $"Ticket ID:{ID}" +
+                $"Ticket Price:{Price}" +
+                $"Ticket Owner's National ID:{Owner.NationalID}" +
+                $"Ticket Purchase Date: {PurchaseDate.ToString("yyyy/MM/dd hh:mm:ss")}" +
+                $"Ticket Payment method: {PaymentMethod}" +
+                $"Train: {TJourney.JTrain.ID}" +
+                $"Seat: {TJourney.Seat.Number}";
         }
+
+
     }
 }

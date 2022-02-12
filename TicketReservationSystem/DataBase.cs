@@ -14,10 +14,6 @@ namespace TicketReservationSystem
         public static List<Ticket> tickets = new List<Ticket>();
         public static List<Passenger> passengers = new List<Passenger>();
         public static List<Train> trains = new List<Train>();
-
-        public static List<Journey> journeys = new List<Journey>();
-
-
         public static List<TrainStation> trainStations = new List<TrainStation>();
 
     }
