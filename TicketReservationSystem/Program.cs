@@ -111,6 +111,15 @@ namespace TicketReservationSystem
                     }
                     else
                     {
+                        string? Station_1, Station_2;
+                        Get_Stations(out Station_1, out Station_2);
+
+                        foreach(Train? train in  GetAvailableTrains(Station_1, Station_2))
+                        {
+                            Console.WriteLine(train);
+                        }
+
+
                         Choice = Choose_Payment_Method();
                         Passenger equalPasseneger = (Passenger)login;
 
@@ -147,6 +156,20 @@ namespace TicketReservationSystem
                     }
                 }
             }            
+        }
+
+        private static void Get_Stations(out string Station_1, out string Station_2)
+        {
+            Console.WriteLine("\nPlease enter the start station for your journey: ");
+            do
+            {
+                Station_1 = Console.ReadLine();
+            } while (Station_1 == null);
+            Console.WriteLine("\nPlease enter the end station for your journey: ");
+            do
+            {
+                Station_2 = Console.ReadLine();
+            } while (Station_2 == null);
         }
     }
 }

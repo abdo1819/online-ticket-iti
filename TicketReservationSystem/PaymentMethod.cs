@@ -30,10 +30,10 @@ namespace TicketReservationSystem
             Console.WriteLine("done");
             return true;
         }
-        //public bool Refund(Ticket ticket)
-        //{
-        //    return true;
-        //}
+        public bool Refund(Ticket ticket)
+        {
+            return true;
+        }
     }
 
     internal class CreditCard : IPaymentMethod
@@ -53,10 +53,10 @@ namespace TicketReservationSystem
             Console.WriteLine("done");
             return true;
         }
-        //public bool Refund(Ticket ticket)
-        //{
-        //    return true;
-        //}
+        public bool Refund(Ticket ticket)
+        {
+            return true;
+        }
     }
 
     internal class MobilWallet : IPaymentMethod
@@ -77,9 +77,9 @@ namespace TicketReservationSystem
             Console.WriteLine("done");
             return true;
         }
-        //public bool Refund(Ticket ticket)
-        //{
-        //    return true;
-        //}
+        public bool Refund(Ticket ticket)
+        {
+            return true;
+        }
     }
 }

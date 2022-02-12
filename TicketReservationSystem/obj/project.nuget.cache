@@ -1,20 +1,18 @@
 {
   "version": 2,
-<<<<<<< HEAD
-  "dgSpecHash": "gCOd1KqimUrgzR0Ls+l5StpgdCLTEbnMPX4EOPdsvLvGIUAp4ASOkTzfVpCa9JaUoaMr7HYwkeoIdkdidNUE1A==",
+  "dgSpecHash": "u88TOesR97NPsz5fXUEGa8amUsC4NMTXcNhcwvwKvOXmt8ugoHb64jqIZ+nsxXLRxvsANWOHpClBxi0uxfsPXA==",
   "success": true,
-  "projectFilePath": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\TicketReservationSystem.csproj",
+  "projectFilePath": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Administrator\\.nuget\\packages\\system.device.location.portable\\1.0.0\\system.device.location.portable.1.0.0.nupkg.sha512"
-=======
-  "dgSpecHash": "kx77PhD+H4r9R4qkLMqbo9K0um9sLGHQaz1KUQ9IHByv2PYweb2aEGRS9osdCA+E9lGBXrlz1Wlu8WY1tZEedg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\midog\\.nuget\\packages\\system.device.location.portable\\1.0.0\\system.device.location.portable.1.0.0.nupkg.sha512"
->>>>>>> a82a374f3231ab26fc0b483fbd50ef1b4f86cace
+    "C:\\Users\\DELL\\.nuget\\packages\\system.device.location.portable\\1.0.0\\system.device.location.portable.1.0.0.nupkg.sha512"
   ],
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
