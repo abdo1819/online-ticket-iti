@@ -33,40 +33,24 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\Administrator\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\midog\\.nuget\\packages\\": {}
->>>>>>> a82a374f3231ab26fc0b483fbd50ef1b4f86cace
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\TicketReservationSystem.csproj",
       "projectName": "TicketReservationSystem",
       "projectPath": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\TicketReservationSystem.csproj",
       "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
       "outputPath": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\obj\\",
-=======
-      "projectUniqueName": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
-      "projectName": "TicketReservationSystem",
-      "projectPath": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
-      "packagesPath": "C:\\Users\\midog\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\obj\\",
->>>>>>> a82a374f3231ab26fc0b483fbd50ef1b4f86cace
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-        "C:\\Users\\midog\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> a82a374f3231ab26fc0b483fbd50ef1b4f86cace
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -117,6 +101,12 @@
     }
   },
   "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    },
     {
       "code": "NU1701",
       "level": "Warning",
