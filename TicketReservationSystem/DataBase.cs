@@ -13,6 +13,8 @@ namespace TicketReservationSystem
 
         public static List<Train> trains = new List<Train>();
 
+        public static List<Journey> journeys = new List<Journey>();
+
 
 
     }
