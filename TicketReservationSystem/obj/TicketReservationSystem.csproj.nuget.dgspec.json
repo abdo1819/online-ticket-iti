@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj": {}
+    "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj": {}
   },
   "projects": {
-    "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj": {
+    "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
+        "projectUniqueName": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
         "projectName": "TicketReservationSystem",
-        "projectPath": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
-        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\obj\\",
+        "projectPath": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
+        "packagesPath": "C:\\Users\\midog\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\midog\\Desktop\\New folder (4)\\online-ticket-iti\\TicketReservationSystem\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\midog\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

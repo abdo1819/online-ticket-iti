@@ -30,3 +30,11 @@ F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReserv
 F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\ref\TicketReservationSystem.dll
 F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.pdb
 F:\ITI\Courses\UML\Project\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.genruntimeconfig.cache
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.AssemblyReference.cache
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.AssemblyInfoInputs.cache
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.AssemblyInfo.cs
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.csproj.CoreCompileInputs.cache
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.dll
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\ref\TicketReservationSystem.dll
+C:\Users\midog\Desktop\New folder (4)\online-ticket-iti\TicketReservationSystem\obj\Debug\net6.0\TicketReservationSystem.pdb
