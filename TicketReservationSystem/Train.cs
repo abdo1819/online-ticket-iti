@@ -184,6 +184,47 @@ namespace TicketReservationSystem
                 return false;
         }
 
+        //TODO: Add GetPrice() to uml
+        public decimal GetPrice(TrainStation _depatrure, TrainStation _arrival, Tier _tier)
+        {
+            int dIndex = stops.IndexOf(_depatrure);
+            int aIndex = stops.IndexOf(_arrival);
+            decimal _price = -1;
+            if (dIndex >= 0 && aIndex > dIndex)
+            {
+                #region Price Calculation
+                double _distance = 0;
+                for (int i = dIndex; i < aIndex; i++)
+                {
+                    _distance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
+                }
+                _price = (decimal)_distance * _tier.UnitPrice;
+                #endregion
+            }
+            return _price;
+        }
+
+        //TODO: Add GetTrainDepartureTime() to uml
+        public TimeSpan GetTrainDepartureTime(TrainStation _departure)
+        {
+            int dIndex = stops.IndexOf(_departure);
+            TimeSpan _departureTime = TimeSpan.Zero;
+            double _totalDistance;
+            if (dIndex > -1)
+            {
+                _totalDistance = 0;
+                for (int i = 0; i < dIndex; i++)
+                {
+                    _totalDistance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
+                }
+                TimeSpan duration = TimeSpan.FromHours(0.001 * _totalDistance / AverageSpeed);
+
+                _departureTime = DepartureTime + duration;
+            }
+
+            return _departureTime;
+        }
+
         public override string ToString()
         {
             return $"TrainNo: {this.ID}\n" +
