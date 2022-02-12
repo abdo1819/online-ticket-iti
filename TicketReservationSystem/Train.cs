@@ -22,6 +22,7 @@ namespace TicketReservationSystem
         {
             id = _id;
             seats = new();
+
             for (int i = 1; i < no_first_class + 1; i++)
             {
                 seats.Add(new FirstClassSeat(i));
@@ -44,7 +45,6 @@ namespace TicketReservationSystem
 
             arrival_time = departure_time + duration;
         }
-
         public int ID { get { return id; } set { id = value; } }
         public List<Seat> Seats { get { return seats; } set { this.seats = value; } }
         public List<TrainStation> Stops { get { return this.stops; } set { this.stops = value; } }

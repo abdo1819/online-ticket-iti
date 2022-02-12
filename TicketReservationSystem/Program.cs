@@ -1,5 +1,7 @@
-﻿
-global using System.Device.Location;
+﻿global using System.Device.Location;
+using static TicketReservationSystem.ConsoleFunctions;
+
+
 namespace TicketReservationSystem
 {
     class Program
@@ -11,118 +13,106 @@ namespace TicketReservationSystem
                 // creating the admin user
                 var User = new Admin(120, "admin", 23454, "admin@D.com", "admin", "nothing");
                 DataBase.Users.Add(User);
-
-                string? Choice;
-                string? Name;
-                string? Email;
-                string? Pass;
-                string? Address;
-
-                int ID;
-                int Phone;
-
-                do
-                {
-                    Console.Clear();
-                    Console.WriteLine("Please Choose: \n");
-                    Console.WriteLine("[Register]  [Login]\n");
-                    Choice = Console.ReadLine()?.ToLower();
-
-                } while (Choice != "register" && Choice != "login" || Choice == null);
+                
+                
+                string Choice = Register_Or_Login();
 
                 if (Choice == "register")
                 {
-                    do
-                    {
-                        Console.Clear();
-                        Console.WriteLine("Please Enter your Name (Username): ");
-                        Name = Console.ReadLine();
-                    } while (Name == null);
-
-                    do
-                    {
-                        Console.WriteLine("\nPlease Enter your National ID: ");
-                    } while (!int.TryParse(Console.ReadLine(), out ID));
-
-                    do
-                    {
-                        Console.WriteLine("\nPlease Enter your Phone Number: ");
-                    } while (!int.TryParse(Console.ReadLine(), out Phone));
-
-                    do
-                    {
-                        Console.WriteLine("\nPlease Enter your Email: ");
-                        Email = Console.ReadLine();
-
-                    } while (Email == null);
-
-                    do
-                    {
-                        Console.WriteLine("\nPlease Enter your Password: ");
-                        Pass = ConsoleFunctions.CheckPassword();
-
-                    } while (Pass == null);
-
-                    do
-                    {
-                        Console.WriteLine("\nPlease Enter your Address: ");
-                        Address = Console.ReadLine();
-
-                    } while (Address == null);
-
-
-                    User passenger = new Passenger(ID, Name, Phone, Email, Pass, Address);
+                    User passenger = Register_New_User();
                     DataBase.Users.Add(passenger);
                     Console.Clear();
                     Console.WriteLine($"Hello, {passenger.Name}");
-                    Console.WriteLine($"\nPlease choose your pick-up station: ");
-                    Console.ReadLine();
                 }
                 else
                 {
-                    do
-                    {
-                        Console.Clear();
-                        Console.WriteLine("\nPlease Enter your Name (Username): ");
-                        Name = Console.ReadLine();
-                    } while (Name == null);
+                    User login = default;
 
-                    do
-                    {
-                        Console.WriteLine("\nPlease Enter your Password: ");
-                        Pass = ConsoleFunctions.CheckPassword();
+                    if (Sign_In(login))
+                        Console.WriteLine($"Hello, {login?.Name}");
+                    else
+                        Console.WriteLine("WRONG USERNAME OR PASSWORD");
 
-                    } while (Pass == null);
-
-                    if(Name == "admin" && Pass == "admin")
+                    
+                    if (login?.Name == "admin" && login?.Password == "admin")
                     {
-                        Console.Clear();
-                        Console.WriteLine("You logged in as an admin");
+                        while(true)
+                        {
+                            int action = Take_Action();
+                            var admin = (Admin)login;
+
+                            switch (action)
+                            {
+                                case 1:
+
+                                    if (Deleting_User(admin))
+                                        Console.WriteLine("Deleted");
+                                    else
+                                        Console.Write("no user with this id");
+
+                                    break;
+
+                                case 2:
+
+                                    if (Adding_Train(admin))
+                                        Console.WriteLine("Added");
+                                    else
+                                        Console.Write("This train already exists");
+
+                                    break;
+
+                                case 3:
+
+                                    if (Deleting_Train(admin))
+                                        Console.WriteLine("Deleted");
+                                    else
+                                        Console.Write("no train with this id");
+
+                                    break;
+                                
+                                default:
+                                    break;
+                            }
+                        }
                     }
                     else
                     {
-                        User passenger;
-                        bool Found = false;
-                        foreach (var user in DataBase.Users)
+                        Choice = Choose_Payment_Method();
+                        Passenger equalPasseneger = (Passenger)login;
+
+                        if (Choice == "credit")
                         {
-                            if(user.Name == Name && user.Password == Pass)
+                            bool found = HasCredit(equalPasseneger);
+
+                            if (!found)
                             {
-                                Found = true;
-                                Console.Clear();
-                                Console.WriteLine($"Hello, {user.Name}");
-                                Console.WriteLine($"\nPlease choose your pick-up station: ");
-                                passenger = user;
+                                CreditCard creditcard = Create_Credit_card();
+                                equalPasseneger.Payment_Methods.Add(creditcard);
                             }
                         }
-                        if (!Found)
+                        else if (Choice == "paypal")
                         {
-                            Console.Clear();
-                            Console.WriteLine("WRONG USERNAME OR PASSWORD...");
+                            bool found = HasPaypal(equalPasseneger);
+
+                            if (!found)
+                            {
+                                Paypal paypal_account = Create_Paypal_Account();
+                                equalPasseneger.Payment_Methods.Add(paypal_account);
+                            }
+                        }
+                        else
+                        {
+                            bool found = HasMobilWallet(equalPasseneger);
+
+                            if (!found)
+                            {
+                                MobilWallet mobil_wallet = Create_Mobil_Wallet();
+                                equalPasseneger.Payment_Methods.Add(mobil_wallet);
+                            }
                         }
                     }
-                    Console.ReadLine();
                 }
-            }
+            }            
         }
     }
 }
