@@ -8,31 +8,31 @@ namespace TicketReservationSystem
     {
         public static void Main()
         {
-            DateTime date1 = new DateTime(2022, 2, 12, 7, 0, 0);//date for journey1
+            //DateTime date1 = new DateTime(2022, 2, 12, 7, 0, 0);//date for journey1
 
-            TrainStation start = new TrainStation("cairo", 26, 30);
-            TrainStation end = new TrainStation("assyuat", 27, 32);
-            List<TrainStation> trainStops = new List<TrainStation>() { start, end };
+            //TrainStation start = new TrainStation("cairo", 26, 30);
+            //TrainStation end = new TrainStation("assyuat", 27, 32);
+            //List<TrainStation> trainStops = new List<TrainStation>() { start, end };
 
-            DateTime departure = new DateTime(2022, 2, 12, 12, 0, 0);//departure date for train1
+            //DateTime departure = new DateTime(2022, 2, 12, 12, 0, 0);//departure date for train1
 
-            Train train1 = new Train(1000, 10, 20, 3000, trainStops, departure);
-            Journey journey1 = new Journey("cairoToAlex", date1, train1, start, end);
-            Console.WriteLine(journey1.getDistance());
-            Console.WriteLine(journey1.getEstimateArrivalTime());
+            //Train train1 = new Train(1000, 10, 20, 3000, trainStops, departure);
+            //Journey journey1 = new Journey("cairoToAlex", date1, train1, start, end);
+            //Console.WriteLine(journey1.getDistance());
+            //Console.WriteLine(journey1.getEstimateArrivalTime());
 
-            FirstClassSeat f1 = new FirstClassSeat(1);
+            //FirstClassSeat f1 = new FirstClassSeat(1);
 
-            Ticket ticket1 = new Ticket("123", 83m, journey1, f1);
+            //Ticket ticket1 = new Ticket("123", 83m, journey1, f1);
 
-            Console.WriteLine(ticket1.ToString());
+            //Console.WriteLine(ticket1.ToString());
 
             //DateTime date2 = new DateTime(2022, 2, 10, 8, 0, 0);
             //Journey journey2 = new Journey("alex", date2);
 
             //Journey journey3 = new Journey("cairo", date1);
 
-            Journey.addJourney(journey1);
+            //Journey.addJourney(journey1);
             //Journey.addJourney(journey2);
             //Journey.addJourney(journey1);
 
