@@ -73,7 +73,6 @@ namespace TicketReservationSystem
             }
             return available;
         }
-
         public bool AddToService() // TODO: change AddTrain() to AddToService()
         {
             if (!DataBase.trains.Contains(this))
@@ -94,19 +93,16 @@ namespace TicketReservationSystem
             else
                 return false;
         }
-
         public static List<Train> GetAllTrains()
         {
             // String.Join(", \n", trains);
             return DataBase.trains;
         }
-
         public List<Seat> AvailableSeats()
         {
             List<Seat> available = this.seats.Where(i => i.Reservation_state == false).ToList();
             return available;
         }
-
         public bool ReserveSeat(Seat seat)
         {
             if(seat!=null && seats.Contains(seat))
@@ -117,7 +113,6 @@ namespace TicketReservationSystem
             else
                 return false;
         }
-
         public bool FreeSeat(Seat seat)
         {
             if (seat != null && seats.Contains(seat))
@@ -185,7 +180,7 @@ namespace TicketReservationSystem
         }
 
         //TODO: Add GetPrice() to uml
-        public decimal GetPrice(TrainStation _depatrure, TrainStation _arrival, Tier _tier)
+        public decimal GetPrice(TrainStation _depatrure, TrainStation _arrival, Seat _seat)
         {
             int dIndex = stops.IndexOf(_depatrure);
             int aIndex = stops.IndexOf(_arrival);
@@ -198,7 +193,7 @@ namespace TicketReservationSystem
                 {
                     _distance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
                 }
-                _price = (decimal)_distance * _tier.UnitPrice;
+                _price = (decimal)_distance * _seat.Tier.UnitPrice;
                 #endregion
             }
             return _price;
