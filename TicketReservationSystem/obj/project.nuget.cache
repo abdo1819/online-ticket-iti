@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "u88TOesR97NPsz5fXUEGa8amUsC4NMTXcNhcwvwKvOXmt8ugoHb64jqIZ+nsxXLRxvsANWOHpClBxi0uxfsPXA==",
+  "dgSpecHash": "gCOd1KqimUrgzR0Ls+l5StpgdCLTEbnMPX4EOPdsvLvGIUAp4ASOkTzfVpCa9JaUoaMr7HYwkeoIdkdidNUE1A==",
   "success": true,
-  "projectFilePath": "D:\\ITI\\UML\\Ticket Reservation System\\online-ticket-iti\\TicketReservationSystem\\TicketReservationSystem.csproj",
+  "projectFilePath": "F:\\ITI\\Courses\\UML\\Project\\TicketReservationSystem\\TicketReservationSystem.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\DELL\\.nuget\\packages\\system.device.location.portable\\1.0.0\\system.device.location.portable.1.0.0.nupkg.sha512"
+    "C:\\Users\\Administrator\\.nuget\\packages\\system.device.location.portable\\1.0.0\\system.device.location.portable.1.0.0.nupkg.sha512"
   ],
   "logs": [
     {
