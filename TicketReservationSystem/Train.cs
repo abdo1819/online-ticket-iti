@@ -73,6 +73,28 @@ namespace TicketReservationSystem
             }
             return available;
         }
+        public static List<Train> GetAvailableTrains(string departure, string arrival)
+        {
+            List<Train> available = new List<Train>();
+            foreach (var train in DataBase.trains)
+            {
+                for (int i = 0; i < train.stops.Count; i++)
+                {
+                    if (train.stops[i].Address.ToLower() == departure.ToLower())
+                    {
+                        for (int j = i + 1; j < train.stops.Count; j++)
+                        {
+                            if (train.stops[j].Address.ToLower() == arrival.ToLower())
+                            {
+                                available.Add(train);
+                            }
+                        }
+                    }
+                }
+            }
+            return available;
+
+        }
         public bool AddToService() // TODO: change AddTrain() to AddToService()
         {
             if (!DataBase.trains.Contains(this))

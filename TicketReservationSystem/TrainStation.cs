@@ -28,5 +28,17 @@ namespace TicketReservationSystem
             return g1.GetDistanceTo(g2);
         }
 
+        public override bool Equals(object obj)
+        {
+            if (obj is TrainStation L)
+                return this.Address.ToLower() == L.Address.ToLower();
+            else
+                return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return this.Address.GetHashCode();
+        }
     }
 }
