@@ -27,9 +27,9 @@ namespace TicketReservationSystem
                 }
                 else
                 {
-                    User login = default;
+                    User? login;
 
-                    if (Sign_In(login))
+                    if (Sign_In(out login))
                         Console.WriteLine($"Hello, {login?.Name}");
                     else
                         Console.WriteLine("WRONG USERNAME OR PASSWORD");

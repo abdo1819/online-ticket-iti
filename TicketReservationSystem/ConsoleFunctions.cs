@@ -169,7 +169,7 @@ namespace TicketReservationSystem
             } while (Choice != "register" && Choice != "login" || Choice == null);
             return Choice;
         }
-        internal static bool Sign_In(User? login)
+        internal static bool Sign_In(out User? login)
         {
             string? Name;
             string? Pass;
@@ -197,6 +197,7 @@ namespace TicketReservationSystem
                     return true;
                 }
             }
+            login = null;
             return false;
         }
         internal static User Register_New_User()
