@@ -1,0 +1,79 @@
+@startuml test
+
+class EventLocation {
+    +coordinate: Coordinates
+    +address: string
+    +rooms: Room[1..*]
+}
+
+class Coordinates {
+    +latitude: number
+    +longitude: number
+}
+Coordinates *-- EventLocation
+
+class Room {
+    +name: string
+    +capacity: number
+    +cost: curency
+}
+Room <|-- EventLocation
+
+
+event o-- EventLocation
+class event {
+    +location : EventLocation
+    +name: string
+    +date: DateTime
+    +duration: number 
+    +ticketInfo: TicketInfo[1..*]
+}
+note left: duration in minutes
+
+class TicketInfo {
+    +tier: string
+    +price: number
+    +cuurency: string {ISO 4217 currency code}
+    +availability: number
+}
+TicketInfo *-- event
+TicketInfo *-- Ticket
+class Ticket {
+    +id: string
+    +info: TicketInfo
+    +owner: User
+    +purchasedBy: User
+    +purchaseDate: DateTime
+    +seatNumber: int
+}
+note top : user can buy multible tickets for other users
+
+class User {
+    +id: string
+    +name: string
+    +email: string
+    +phone: string
+    +password: string
+}
+Ticket -- User
+
+class Attendee {
+    +tickets: Ticket[1..*]
+}
+Ticket -- Attendee
+User <|-- Attendee
+class Purchase {
+    +tickets: Ticket[1..*]
+    +user: User
+    +date: DateTime
+    +getTotalPrice(): currency
+    +paymentMethod: string {"cash", "credit card", "paypal"}
+}
+Purchase *-- User
+Purchase *-- Ticket
+
+class Orgnizer 
+User <|-- Orgnizer
+
+
+@enduml
