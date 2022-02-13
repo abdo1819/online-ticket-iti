@@ -15,7 +15,7 @@ namespace TicketReservationSystem
         {
             Address = address;
             Coordinates = new Coordinates(_lat, _long);
-            DataBase.trainStations.Add(this);
+            // DataBase.trainStations.Add(this);
         }
         public override string ToString()
         {
@@ -51,6 +51,16 @@ namespace TicketReservationSystem
         public int GetHashCode([DisallowNull] TrainStation obj)
         {
             return obj.Address.GetHashCode();
+        }
+        public static bool AddStation(TrainStation station)
+        {
+            if (DataBase.trainStations.Contains(station) == false)
+            {
+                DataBase.trainStations.Add(station);
+                return true;
+            }             
+            else
+                return false;
         }
     }
 }

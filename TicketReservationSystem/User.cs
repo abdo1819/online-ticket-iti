@@ -36,12 +36,15 @@ namespace TicketReservationSystem
 
     internal class Passenger : User
     {
+        public List<IPaymentMethod> Payment_Methods;
+        public List<Ticket> PassengerTickets;
         public Passenger(int _NationalID, string _Name, int _Phone, string _Email, string _Password, string _Address):base(_NationalID, _Name, _Phone, _Email, _Password, _Address)
         {
             Payment_Methods = new List<IPaymentMethod>();
+            PassengerTickets = new List<Ticket>();
         }
 
-        public List<IPaymentMethod> Payment_Methods;
+
 
         public override bool Equals(Object obj)
         {
@@ -57,7 +60,7 @@ namespace TicketReservationSystem
         {
             var chosenSeat = chosenTrip.findSeat(choice);
 
-            var userJourney = new Journey(this.NationalID + 100, chosenTrip.DepartureTime, chosenTrip, departure, arrival, chosenSeat);
+            var userJourney = new Journey(this.NationalID + 100, chosenTrip.GetTrainDepartureTime(departure), chosenTrip, departure, arrival, chosenSeat);
 
             if (paymentMethod.ProcessPayment(userJourney.getPrice(choice)))
             {
@@ -71,7 +74,14 @@ namespace TicketReservationSystem
                 return null;
         }
         public bool cancel(Ticket ticket){
-            throw new NotImplementedException();
+            if (PassengerTickets.Contains(ticket))
+            {
+                PassengerTickets.Remove(ticket);
+                return true;
+            }
+            else
+                return false;
+
         }
     }
 
@@ -106,6 +116,43 @@ namespace TicketReservationSystem
             }
             Console.WriteLine("\nThis User doesn't exists");
             return false;
+        }
+
+        public bool AddStation(TrainStation station)
+        {
+            if (DataBase.trainStations.Contains(station))
+                return false;
+            else
+            {
+                TrainStation.AddStation(station);
+                return true;
+            }
+        }
+        public bool RemoveStation(TrainStation station)
+        {
+            if (DataBase.trainStations.Contains(station))
+            {
+                DataBase.trainStations.Remove(station);
+                foreach (var train in DataBase.trains)
+                {
+                    if (train.Stops.Contains(station))
+                        train.Stops.Remove(station);
+                }
+                return true;
+            }
+
+            else
+                return false;
+        }
+        public bool AssignTrainToStation(TrainStation station, Train train)
+        {
+            if (train.Stops.Contains(station))
+                return false;
+            else
+            {
+                train.Stops.Add(station);
+                return true;
+            }
         }
     }
 }

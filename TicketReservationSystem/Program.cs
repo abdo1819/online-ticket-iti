@@ -8,23 +8,13 @@ namespace TicketReservationSystem
     {
         public static void Main()
         {
-            ////////////////// Remove This Later ////////////////////////////////
-            var User2 = new Passenger(120, "fathy", 23454, "admin@D.com", "123", "nothing");
-            DataBase.Users.Add(User2);
-            List<TrainStation> stations = new()
-            {
-                new TrainStation("Cairo", 30.0, 31.2),
-                new TrainStation("Giza", 29.98, 31.2),
-                new TrainStation("El-Fayoum", 29.3, 30.8),
-                new TrainStation("El-Minya", 28.08, 30.75)
-            };
-            DataBase.trains.Add(new Train(100, 20, 20, 40, stations, new TimeSpan(2, 0, 0)));
-            ////////////////////////////////////////////////////////////////////////////
+            
+            populateDB();
 
             // creating the admin user
             var User = new Admin(120, "admin", 23454, "admin@D.com", "admin", "nothing");
             DataBase.Users.Add(User);
-
+   
             while (true)
             {
                 while (true)
@@ -206,6 +196,7 @@ namespace TicketReservationSystem
                                     if (confirm.ToLower() == "y")
                                     {
                                         passTicket = equalPasseneger.buy(chosenTrip, choice, Station_1, Station_2, Chosen_Method);
+                                        equalPasseneger.PassengerTickets.Add(passTicket);
                                     }
                                     else
                                     {

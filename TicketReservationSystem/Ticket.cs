@@ -29,10 +29,11 @@ namespace TicketReservationSystem
         public override string ToString()
         {
             return $"Ticket ID:{ID}\n" +
-                $"Ticket Price:{Price}\n" +
+                $"Ticket Price:{(int)Price}\n" +
                 $"Ticket Owner's National ID:{Owner.NationalID}\n" +
                 $"Ticket Purchase Date: {PurchaseDate.ToString("yyyy/MM/dd hh:mm:ss")}\n" +
                 $"Train: {TJourney.JTrain.ID}\n" +
+                $"Departure Time: {TJourney.DepartureTime}\n" +
                 $"Seat: {TJourney.Seat.Number}\n";
         }
 

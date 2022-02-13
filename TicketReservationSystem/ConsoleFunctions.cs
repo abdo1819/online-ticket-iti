@@ -391,5 +391,75 @@ namespace TicketReservationSystem
             return action;
         }
 
+        //////////// These functions populate DB with dummy data /////////////////
+        
+        internal static void DummyStations()
+        {
+            DataBase.trainStations.Add(new TrainStation("Cairo", 30.0, 31.2));
+            DataBase.trainStations.Add(new TrainStation("Giza", 29.98, 31.2));
+            DataBase.trainStations.Add(new TrainStation("El-Fayoum", 29.3, 30.8));
+            DataBase.trainStations.Add(new TrainStation("El-Minya", 28.08, 30.75));
+            DataBase.trainStations.Add(new TrainStation("Alexandria", 31.2, 29.9167));
+            DataBase.trainStations.Add(new TrainStation("Bani Suef", 29.0667, 31.0833));
+            DataBase.trainStations.Add(new TrainStation("Mit Ghamr", 30.7192, 31.2628));
+            DataBase.trainStations.Add(new TrainStation("Luxor", 25.6969, 32.6422));
+            DataBase.trainStations.Add(new TrainStation("Qina", 26.1667, 32.7167));
+            DataBase.trainStations.Add(new TrainStation("Sohag", 26.5606, 26.5606));
+            DataBase.trainStations.Add(new TrainStation("Aswan", 24.9781, 32.8789));
+        }
+
+        internal static void DummyTrains()
+        {
+                    DataBase.trains.Add(new Train(1, 60, 120, 120,
+            new()
+            {
+                DataBase.trainStations[0],
+                DataBase.trainStations[1],
+                DataBase.trainStations[5],
+                DataBase.trainStations[3],
+                DataBase.trainStations[9],
+                DataBase.trainStations[8],
+                DataBase.trainStations[7],
+                DataBase.trainStations[10]
+            },
+            new TimeSpan(6, 0, 0)));
+
+
+            DataBase.trains.Add(new Train(2, 50, 160, 100,
+                new() { DataBase.trainStations[0], DataBase.trainStations[5],
+                    DataBase.trainStations[3], DataBase.trainStations[8] },
+                new TimeSpan(10, 0, 0)));
+
+            DataBase.trains.Add(new Train(3, 80, 150, 90,
+                new() { DataBase.trainStations[0], DataBase.trainStations[1], DataBase.trainStations[2] },
+                new TimeSpan(2, 0, 0)));
+
+            DataBase.trains.Add(new Train(4, 60, 120, 120,
+                new() { DataBase.trainStations[0], DataBase.trainStations[1], 
+                    DataBase.trainStations[7], DataBase.trainStations[8], DataBase.trainStations[9] },
+                new TimeSpan(6, 0, 0)));
+
+            DataBase.trains.Add(new Train(5, 80, 150, 90,
+                new() { DataBase.trainStations[0], DataBase.trainStations[1], DataBase.trainStations[2],
+                    DataBase.trainStations[3], DataBase.trainStations[5], DataBase.trainStations[7] ,
+                    DataBase.trainStations[10]
+                },
+                new TimeSpan(3, 0, 0)));
+        }
+
+        internal static void DummyPassengers()
+        {
+            DataBase.Users.Add(new Passenger(123456, "Ahmed", 01511234, "ahmed@gmail.com", "123", "Cairo"));
+            DataBase.Users.Add(new Passenger(12345677, "Mohamed", 01212323, "Mohamed@gmail.com", "123", "Alex"));
+        }
+
+
+        internal static void populateDB()
+        {
+            DummyStations();
+            DummyPassengers();
+            DummyTrains();
+        }
+
     }
 }
