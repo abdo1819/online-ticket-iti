@@ -11,7 +11,7 @@ namespace TicketReservationSystem
     internal interface IPaymentMethod
     {
         bool ProcessPayment(int amount);
-        //bool Refund(Ticket ticket);
+        bool Refund(Ticket ticket);
     }
 
     internal class Paypal : IPaymentMethod

@@ -238,7 +238,7 @@ namespace TicketReservationSystem
 
             } while (Pass == null);
 
-
+            // TODO 0156 move communicatino with database to User class
             foreach (var user in DataBase.Users)
             {
                 if (user.Name == Name && user.Password == Pass)
