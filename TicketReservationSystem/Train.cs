@@ -120,10 +120,10 @@ namespace TicketReservationSystem
             // String.Join(", \n", trains);
             return DataBase.trains;
         }
-        public List<Seat> AvailableSeats()
+        public void AvailableSeats(out List<Seat> First, out List<Seat> Second)
         {
-            List<Seat> available = this.seats.Where(i => i.Reservation_state == false).ToList();
-            return available;
+            First = this.seats.Where(i => i.Reservation_state == false && i.Tier.Type== TierType.First).ToList();
+            Second = this.seats.Where(i => i.Reservation_state == false && i.Tier.Type == TierType.Second).ToList();
         }
         public bool ReserveSeat(Seat seat)
         {
@@ -134,6 +134,12 @@ namespace TicketReservationSystem
             }
             else
                 return false;
+        }
+        public Seat findSeat(int tier)
+        {
+            this.AvailableSeats(out List <Seat> first, out List <Seat> second);
+            Seat SelectedSeat = tier == 1 ? first[0] : second[0];
+            return SelectedSeat;
         }
         public bool FreeSeat(Seat seat)
         {
@@ -202,11 +208,12 @@ namespace TicketReservationSystem
         }
 
         //TODO: Add GetPrice() to uml
-        public decimal GetPrice(TrainStation _depatrure, TrainStation _arrival, Seat _seat)
+        public void GetPrice(TrainStation _depatrure, TrainStation _arrival, out decimal First, out decimal Second)
         {
             int dIndex = stops.IndexOf(_depatrure);
             int aIndex = stops.IndexOf(_arrival);
-            decimal _price = -1;
+            First = -1;
+            Second = -1;
             if (dIndex >= 0 && aIndex > dIndex)
             {
                 #region Price Calculation
@@ -215,10 +222,11 @@ namespace TicketReservationSystem
                 {
                     _distance += TrainStation.DistanceBetween(stops[i], stops[i + 1]);
                 }
-                _price = (decimal)_distance * _seat.Tier.UnitPrice;
+                First = (decimal)_distance * this.Seats.Where(i=>i.Tier.Type == TierType.First).FirstOrDefault().Tier.UnitPrice;
+                Second = (decimal)_distance * this.Seats.Where(i => i.Tier.Type == TierType.Second).FirstOrDefault().Tier.UnitPrice;
+
                 #endregion
             }
-            return _price;
         }
 
         //TODO: Add GetTrainDepartureTime() to uml
@@ -249,7 +257,7 @@ namespace TicketReservationSystem
                 $"Departure Time: {this.DepartureTime}\n" +
                 $"Arrival Station: {this.stops[stops.Count - 1].Address}\n" +
                 $"Arrival Time: {this.ArrivalTime}\n" +
-                $"Stops: {String.Join(", ", this.stops)}";
+                $"Stops: {String.Join(", ", this.stops.Select(i => i.Address))}";
         }
     }
 }

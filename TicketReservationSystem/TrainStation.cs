@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace TicketReservationSystem
 {
-    public class TrainStation
+    public class TrainStation: IEqualityComparer<TrainStation>
     {
         public Coordinates Coordinates { get; set; }
         public string Address { get; set; }
@@ -14,10 +15,11 @@ namespace TicketReservationSystem
         {
             Address = address;
             Coordinates = new Coordinates(_lat, _long);
+            DataBase.trainStations.Add(this);
         }
         public override string ToString()
         {
-            return $"Staion Address: {this.Address}\n" +
+            return $"Station Address: {this.Address}\n" +
                 $"Lat: {this.Coordinates.Latitude}\n" +
                 $"Long: {this.Coordinates.Longitude}\n";
         }
@@ -39,6 +41,16 @@ namespace TicketReservationSystem
         public override int GetHashCode()
         {
             return this.Address.GetHashCode();
+        }
+
+        public bool Equals(TrainStation x, TrainStation y)
+        {
+            return x.Address.ToLower() == y.Address.ToLower();
+        }
+
+        public int GetHashCode([DisallowNull] TrainStation obj)
+        {
+            return obj.Address.GetHashCode();
         }
     }
 }
