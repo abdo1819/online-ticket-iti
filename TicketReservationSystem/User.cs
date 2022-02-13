@@ -25,6 +25,13 @@ namespace TicketReservationSystem
         public string Password { get; }
         public string Address {get; set;}
 
+        public static bool login(string userName,string password){
+            // TODO 0156 move communicatino with database to User class
+            throw new NotImplementedException();
+        }
+        public static void NavigatePassenger(){
+            throw new NotImplementedException();
+        }
     }
 
     internal class Passenger : User
@@ -46,6 +53,12 @@ namespace TicketReservationSystem
 
         }
 
+        public Ticket buy(Journey journey, Tier tier,IPaymentMethod paymentMethod){
+            throw new NotImplementedException();
+        }
+        public bool cancel(Ticket ticket){
+            throw new NotImplementedException();
+        }
     }
 
     internal class Admin : User
@@ -56,6 +69,7 @@ namespace TicketReservationSystem
 
         public bool AddTrain(int _id, int no_first_class, int no_second_class, double avg_speed, List<TrainStation> _stops, TimeSpan _departureTime)
         {
+            // TODO 49896 make add train take train object
 
             Train train = new Train(_id, no_first_class, no_second_class, avg_speed, _stops, _departureTime);
             return train.AddToService();
