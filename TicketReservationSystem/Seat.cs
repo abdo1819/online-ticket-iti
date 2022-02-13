@@ -33,14 +33,14 @@ namespace TicketReservationSystem
 
     class FirstClassSeat : Seat
     {
-        public FirstClassSeat(int _number) : base(_number, new(TierType.First, 10), false)
+        public FirstClassSeat(int _number) : base(_number, new(TierType.First, 10M/20000), false)
         {
         }
     }
 
     class SecondClassSeat : Seat
     {
-        public SecondClassSeat(int _number) : base(_number, new(TierType.Second, 7), false)
+        public SecondClassSeat(int _number) : base(_number, new(TierType.Second, 7M / 20000), false)
         {
         }
     }

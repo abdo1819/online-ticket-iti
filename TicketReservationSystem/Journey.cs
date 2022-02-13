@@ -10,26 +10,26 @@ namespace TicketReservationSystem
     {
         // TODO: Remove station property in UML
         public int ID { get; set; }  // TODO: Change name to ID in UML, name doesn't make sense
-        public DateTime Date { get; set; }
+        public TimeSpan DepartureTime { get; set; } // TODO:Change in the UML
         public Train JTrain { get; set; }  // TODO:Change name of property in UML
         public TrainStation StartStation { get; set; }
         public TrainStation EndStation { get; set; }
         public Seat Seat { get; set; } // TODO: Add this to class diagram
 
-        public Journey(int _ID, DateTime _Date, Train _Train, TrainStation _Start, TrainStation _End, Seat _Seat)
+        public Journey(int _ID, TimeSpan _DepartureTime, Train _Train, TrainStation _Start, TrainStation _End, Seat _Seat)
         {
             ID = _ID;
-            Date = _Date;
+            DepartureTime = _DepartureTime;
             JTrain = _Train;
             StartStation = _Start;
             EndStation = _End;
             Seat = _Seat;
         }
 
-        public decimal getPrice()
-        {
-            return JTrain.GetPrice(StartStation, EndStation, Seat);
-        }
+        //public decimal getPrice()
+        //{
+        //    return JTrain.GetPrice(StartStation, EndStation, );
+        //}
 
         public TimeSpan getEstimateArrivalTime() // TODO: Make this return TimeSpan in UML
         {
@@ -59,6 +59,16 @@ namespace TicketReservationSystem
         //    return seats;
         //}
 
+        //public Dictionary<Journey,Tier> getAvailableJourneys(string _departure, string _arrival)
+        //{
+        //    var Journeys = new Dictionary<Journey, Tier>();
+        //    var availTrains = Train.GetAvailableTrains(_departure, _arrival);
+        //    foreach (var train in availTrains)
+        //    {
+
+        //    }
+        //}
+
         public bool AddJourney() // TODO: Train method is not static, but this one is static in UML, which do we follow?
         {
             if (!DataBase.journeys.Contains(this))
@@ -73,7 +83,7 @@ namespace TicketReservationSystem
         public override string ToString()
         {
             return $"Journey ID:{ID}" +
-                $"Journey Date: {Date}" +
+                $"Journey Date: {DepartureTime}" +
                 $"Journey Train{JTrain.ID}" +
                 $"Journey Starts at: {StartStation.Address}" +
                 $"Journey Ends at: {EndStation.Address}";

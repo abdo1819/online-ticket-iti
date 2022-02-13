@@ -23,18 +23,40 @@ namespace TicketReservationSystem
             Thread.Sleep(1000);
             Console.Clear();
         }
-        internal static void Get_Stations(out string Station_1, out string Station_2)
+        internal static void Get_Stations(out TrainStation Station_1, out TrainStation Station_2)
         {
-            Console.WriteLine("\nPlease enter the start station for your journey: ");
+            TrainStation temp1 = default, temp2 = default;
+
+            string MyStation_2, MyStation_1;
+
+            foreach (var station in DataBase.trainStations.Distinct())
+            {
+                Console.WriteLine(station.Address);
+            }
+            Console.WriteLine("\nPlease enter the start station from the above for your journey: ");
             do
             {
-                Station_1 = Console.ReadLine();
-            } while (Station_1 == null);
+                MyStation_1 = Console.ReadLine();
+                foreach(var station in DataBase.trainStations)
+                {
+                    if (station.Address == MyStation_1)
+                        temp1 = station;
+                }
+            } while (MyStation_1 == null);
             Console.WriteLine("\nPlease enter the end station for your journey: ");
             do
             {
-                Station_2 = Console.ReadLine();
-            } while (Station_2 == null);
+                MyStation_2 = Console.ReadLine();
+                foreach (var station in DataBase.trainStations)
+                {
+                    if (station.Address == MyStation_2)
+                        temp2 = station;
+                }
+            } while (MyStation_2 == null);
+
+            Station_1 = temp1;
+            Station_2 = temp2;
+
         }
         internal static string CheckPassword()
         {
