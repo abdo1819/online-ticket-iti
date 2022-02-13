@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?><XMI xmlns:UML="href://org.omg/UML/1.3" xmi.version="1.1">
+<XMI.header>
+<XMI.metamodel xmi.name="UML" xmi.version="1.3"/>
+</XMI.header>
+<XMI.content>
+<UML:Model name="PlantUML" xmi.id="model1">
+<UML:Namespace.ownedElement>
+<UML:Association name="" namespace="model1" xmi.id="ass43">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass43" type="cl0003" xmi.id="end44">
+<UML:AssociationEnd.participant>
+<UML:Class name="Coordinates" namespace="model1" xmi.id="cl0003">
+<UML:Classifier.feature>
+<UML:Attribute name="latitude: Integer" visibility="public" xmi.id="att45"/>
+<UML:Attribute name="longitude: Integer" visibility="public" xmi.id="att46"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass43" type="cl0002" xmi.id="end47">
+<UML:AssociationEnd.participant>
+<UML:Class name="TrainStation" namespace="model1" xmi.id="cl0002">
+<UML:Classifier.feature>
+<UML:Attribute name="address: String" visibility="public" xmi.id="att48"/>
+<UML:Attribute name="coordinate: Coordinates" visibility="public" xmi.id="att49"/>
+<UML:Operation name="DistanceBetwean(Station1: TrainStation,station2: TrainsStation): double" visibility="public" xmi.id="att50"/>
+<UML:Operation name="addStation(TrainStation):Boolean" visibility="public" xmi.id="att51"/>
+<UML:Operation name="TrainsStation():TrainsStation" xmi.id="att52"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass55">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass55" type="cl0009" xmi.id="end56">
+<UML:AssociationEnd.participant>
+<UML:Class name="Seat" namespace="model1" xmi.id="cl0009">
+<UML:Classifier.feature>
+<UML:Attribute name="Integer: int" visibility="public" xmi.id="att57"/>
+<UML:Attribute name="reservation_state: Boolean" visibility="public" xmi.id="att58"/>
+<UML:Attribute name="Tier: Tier" visibility="public" xmi.id="att59"/>
+<UML:Operation name="Seat():Seat" visibility="public" xmi.id="att60"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass55" type="cl0005" xmi.id="end61">
+<UML:AssociationEnd.participant>
+<UML:Class name="Tier" namespace="model1" xmi.id="cl0005">
+<UML:Classifier.feature>
+<UML:Attribute name="type: Integer" visibility="public" xmi.id="att62"/>
+<UML:Attribute name="unitPrice: Integer" visibility="public" xmi.id="att63"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass64">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass64" type="cl0011" xmi.id="end65">
+<UML:AssociationEnd.participant>
+<UML:Class name="Train" namespace="model1" xmi.id="cl0011">
+<UML:Classifier.feature>
+<UML:Attribute name="Arrival_time: TimeSpan" visibility="public" xmi.id="att66"/>
+<UML:Attribute name="AverageTrainSpeed: Integer" visibility="public" xmi.id="att67"/>
+<UML:Attribute name="departure_time: TimeSpan" visibility="public" xmi.id="att68"/>
+<UML:Attribute name="id:int" visibility="public" xmi.id="att69"/>
+<UML:Attribute name="seats: Seat[1..*]" visibility="public" xmi.id="att70"/>
+<UML:Attribute name="stops: Dictionary&lt;TrainStation&gt;" visibility="public" xmi.id="att71"/>
+<UML:Attribute name="totalDistance: double" visibility="public" xmi.id="att72"/>
+<UML:Operation name="addStopStation():Boolean" visibility="public" xmi.id="att73"/>
+<UML:Operation name="addStopStationafter(TrainStation):Boolean" visibility="public" xmi.id="att74"/>
+<UML:Operation name="addToService():Boolean" visibility="public" xmi.id="att75"/>
+<UML:Operation name="availableSeats():Seats1[0..*],seats2[0..*]" visibility="public" xmi.id="att76"/>
+<UML:Operation name="findSeats(int Tier):Seat1" visibility="public" xmi.id="att77"/>
+<UML:Operation name="FreeSeat(Seat:seat):Boolean" visibility="public" xmi.id="att78"/>
+<UML:Operation name="getAllTrain():Train[0..*]" visibility="public" xmi.id="att79"/>
+<UML:Operation name="GetAvialbleTrains(departure,arrival):Train[0..*]" visibility="public" xmi.id="att80"/>
+<UML:Operation name="GetPrice(departure,arrival):double1,double2" visibility="public" xmi.id="att81"/>
+<UML:Operation name="GetDepatureTime(departure : trainStatino):TimeSpan" visibility="public" xmi.id="att82"/>
+<UML:Operation name="removeFromService():Boolean" visibility="public" xmi.id="att83"/>
+<UML:Operation name="reserveSeat(Seat):Boolean" visibility="public" xmi.id="att84"/>
+<UML:Operation name="freeSeat(Seat):Boolean" visibility="public" xmi.id="att85"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass64" type="cl0002" xmi.id="end86">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0002"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass87">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass87" type="cl0011" xmi.id="end88">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0011"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass87" type="cl0009" xmi.id="end89">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0009"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass90">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass90" type="cl0014" xmi.id="end91">
+<UML:AssociationEnd.participant>
+<UML:Class name="Journey" namespace="model1" xmi.id="cl0014">
+<UML:Classifier.feature>
+<UML:Attribute name="departure_time: TimeSpan" visibility="public" xmi.id="att92"/>
+<UML:Attribute name="endStation: TrainStation" visibility="public" xmi.id="att93"/>
+<UML:Attribute name="id:int" visibility="public" xmi.id="att94"/>
+<UML:Attribute name="train :Train" visibility="public" xmi.id="att95"/>
+<UML:Attribute name="Seat: Seat" visibility="public" xmi.id="att96"/>
+<UML:Attribute name="startStation: TrainStation" visibility="public" xmi.id="att97"/>
+<UML:Operation name="getEstimateArrivalTime():DateTime" visibility="public" xmi.id="att98"/>
+<UML:Operation name="getPrice(int tier):double" visibility="public" xmi.id="att99"/>
+<UML:Operation name="Journey():J" xmi.id="att100"/>
+<UML:Operation name="AvailableSeats():Seat[0..*]" visibility="public" xmi.id="att101"/>
+<UML:Operation name="addJourney():Boolean" visibility="public" xmi.id="att102"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass90" type="cl0002" xmi.id="end103">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0002"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass106">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass106" type="cl0014" xmi.id="end107">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0014"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass106" type="cl0011" xmi.id="end108">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0011"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass109">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass109" type="cl0020" xmi.id="end110">
+<UML:AssociationEnd.participant>
+<UML:Class name="Ticket" namespace="model1" xmi.id="cl0020">
+<UML:Classifier.feature>
+<UML:Attribute name="id: String" visibility="public" xmi.id="att111"/>
+<UML:Attribute name="owner: Passenger" visibility="public" xmi.id="att112"/>
+<UML:Attribute name="paymentMethod: PaymentMethod" visibility="public" xmi.id="att113"/>
+<UML:Attribute name="price: Integer" visibility="public" xmi.id="att114"/>
+<UML:Attribute name="purchaseDate: DateTime" visibility="public" xmi.id="att115"/>
+<UML:Attribute name="journey: Journey" visibility="public" xmi.id="att116"/>
+<UML:Operation name="Ticket():Ticket" visibility="public" xmi.id="att117"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass109" type="cl0021" xmi.id="end118">
+<UML:AssociationEnd.participant>
+<UML:Class isInterface="true" name="PaymentMethod" namespace="model1" xmi.id="cl0021">
+<UML:Classifier.feature>
+<UML:Operation name="processPayment(amount:int): Boolean" visibility="public" xmi.id="att119"/>
+<UML:Operation name="refund(amount:int): Boolean" visibility="public" xmi.id="att120"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass121">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass121" type="cl0020" xmi.id="end122">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0020"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass121" type="cl0002" xmi.id="end123">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0002"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass124">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass124" type="cl0020" xmi.id="end125">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0020"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass124" type="cl0014" xmi.id="end126">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0014"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass127">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass127" type="cl0009" xmi.id="end128">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0009"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass127" type="cl0020" xmi.id="end129">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0020"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass130">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass130" type="cl0027" xmi.id="end131">
+<UML:AssociationEnd.participant>
+<UML:Class name="Passenger" namespace="model1" xmi.id="cl0027">
+<UML:Classifier.feature>
+<UML:Attribute name="savedPayments: PaymentMethod [0..*]" visibility="public" xmi.id="att132"/>
+<UML:Operation name="buy(train,Tier,departure,arrival,paymentMethod): Ticket" visibility="public" xmi.id="att133"/>
+<UML:Operation name="cancel(Ticket): Boolean" visibility="public" xmi.id="att134"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass130" type="cl0021" xmi.id="end135">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0021"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass136">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass136" type="cl0021" xmi.id="end137">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0021"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass136" type="cl0029" xmi.id="end138">
+<UML:AssociationEnd.participant>
+<UML:Class name="CreditCard" namespace="model1" xmi.id="cl0029">
+<UML:Classifier.feature>
+<UML:Attribute name="Integer: String" visibility="public" xmi.id="att139"/>
+<UML:Attribute name="cvv: String" visibility="public" xmi.id="att140"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass141">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass141" type="cl0021" xmi.id="end142">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0021"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass141" type="cl0030" xmi.id="end143">
+<UML:AssociationEnd.participant>
+<UML:Class name="PayPal" namespace="model1" xmi.id="cl0030">
+<UML:Classifier.feature>
+<UML:Attribute name="email: String" visibility="public" xmi.id="att144"/>
+<UML:Attribute name="password: String" visibility="public" xmi.id="att145"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass146">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass146" type="cl0021" xmi.id="end147">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0021"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass146" type="cl0031" xmi.id="end148">
+<UML:AssociationEnd.participant>
+<UML:Class name="MobileWallet" namespace="model1" xmi.id="cl0031">
+<UML:Classifier.feature>
+<UML:Attribute name="phone: String" visibility="public" xmi.id="att149"/>
+<UML:Attribute name="password: String" visibility="public" xmi.id="att150"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass151">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass151" type="cl0026" xmi.id="end152">
+<UML:AssociationEnd.participant>
+<UML:Class name="User" namespace="model1" xmi.id="cl0026">
+<UML:Classifier.feature>
+<UML:Attribute name="Address: String" visibility="public" xmi.id="att153"/>
+<UML:Attribute name="Email: String" visibility="public" xmi.id="att154"/>
+<UML:Attribute name="Name: String" visibility="public" xmi.id="att155"/>
+<UML:Attribute name="NationalId: String" visibility="public" xmi.id="att156"/>
+<UML:Attribute name="Phone: String" visibility="public" xmi.id="att157"/>
+<UML:Attribute name="Password: String" visibility="public" xmi.id="att158"/>
+<UML:Operation name="login(userName:  String,password: String):Boolean" visibility="public" xmi.id="att159"/>
+<UML:Operation name="User():User" visibility="public" xmi.id="att160"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass151" type="cl0035" xmi.id="end161">
+<UML:AssociationEnd.participant>
+<UML:Class name="Admin" namespace="model1" xmi.id="cl0035">
+<UML:Classifier.feature>
+<UML:Operation name="addTrain(Train):Boolean" visibility="public" xmi.id="att162"/>
+<UML:Operation name="removeTrain(Train):Boolean" visibility="public" xmi.id="att163"/>
+<UML:Operation name="removeUser(User):Boolean" visibility="public" xmi.id="att164"/>
+<UML:Operation name="Admin():Admin" visibility="public" xmi.id="att165"/>
+</UML:Classifier.feature>
+</UML:Class>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="owns" namespace="model1" xmi.id="ass166">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass166" type="cl0020" xmi.id="end167">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0020"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass166" type="cl0027" xmi.id="end168">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0027"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+<UML:Association name="" namespace="model1" xmi.id="ass169">
+<UML:Association.connection>
+<UML:AssociationEnd association="ass169" type="cl0026" xmi.id="end170">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0026"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+<UML:AssociationEnd association="ass169" type="cl0027" xmi.id="end171">
+<UML:AssociationEnd.participant>
+<UML:Class xmi.idref="cl0027"/>
+</UML:AssociationEnd.participant>
+</UML:AssociationEnd>
+</UML:Association.connection>
+</UML:Association>
+</UML:Namespace.ownedElement>
+</UML:Model>
+</XMI.content>
+</XMI>

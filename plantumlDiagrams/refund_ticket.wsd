@@ -1,0 +1,21 @@
+@startuml sequance
+actor console 
+participant passenger 
+participant paymentMethod
+' participant ticket
+
+console -> passenger: passenger.getTicket()
+activate passenger
+activate console
+passenger -> console: user tickets[0..*]
+deactivate passenger
+console -> passenger: cancel(Ticket)
+activate passenger
+passenger -> paymentMethod: refund(ticket)
+activate paymentMethod
+paymentMethod -> passenger: success
+deactivate paymentMethod
+passenger -> console: success
+deactivate passenger
+deactivate console
+@enduml

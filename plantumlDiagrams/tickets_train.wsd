@@ -1,0 +1,159 @@
+@startuml test
+
+class TrainStation {
+    +address: String
+    +coordinate: Coordinates
+    +DistanceBetwean(Station1: TrainStation,station2: TrainsStation): double
+    +addStation(TrainStation):Boolean
+    TrainsStation():TrainsStation
+}
+class Coordinates {
+    +latitude: Integer
+    +longitude: Integer
+}
+Coordinates *-- TrainStation
+
+class Tier {
+    +type: Integer
+    +unitPrice: Integer
+}
+note left : price per km
+class Seat {
+    +Integer: int
+    +reservation_state: Boolean
+    +Tier: Tier
+    +Seat():Seat
+}
+Seat *-- Tier
+Train -- TrainStation
+class Train {
+    +Arrival_time: TimeSpan
+    +AverageTrainSpeed: Integer
+    +departure_time: TimeSpan
+    +id:int
+    +seats: Seat[1..*]
+    +stops: Dictionary<TrainStation>
+    +totalDistance: double
+    
+    +addStopStation():Boolean
+    +addStopStationafter(TrainStation):Boolean
+    +addToService():Boolean
+    +availableSeats():Seats1[0..*],seats2[0..*]
+    +findSeats(int Tier):Seat1
+    +FreeSeat(Seat:seat):Boolean
+    + {static} getAllTrain():Train[0..*]
+    +GetAvialbleTrains(departure,arrival):Train[0..*]
+    +GetPrice(departure,arrival):double1,double2
+    +GetDepatureTime(departure : trainStatino):TimeSpan
+    +removeFromService():Boolean
+    +reserveSeat(Seat):Boolean
+    +freeSeat(Seat):Boolean
+}
+
+Train <|-- Seat
+
+Journey *-- TrainStation
+class Journey {
+    +departure_time: TimeSpan
+    +endStation: TrainStation
+    +id:int
+    +train :Train
+    +Seat: Seat
+    +startStation: TrainStation
+    
+    +getEstimateArrivalTime():DateTime
+    +getPrice(int tier):double
+    Journey():J
+    +AvailableSeats():Seat[0..*]
+    +addJourney():Boolean
+    ' +{static} AvailableJourneis(TrainStation,TrainStation):Journey[0..*]
+}
+note top: duration in minutes
+Journey *-- Train
+
+
+class Ticket {
+    +id: String
+    +owner: Passenger
+    +paymentMethod: PaymentMethod
+    +price: Integer
+    +purchaseDate: DateTime
+    +journey: Journey
+    +Ticket():Ticket
+}
+Ticket *-- PaymentMethod
+Ticket *-- TrainStation
+Ticket *-- Journey
+Seat *-- Ticket
+
+class User {
+    +Address: String
+    +Email: String
+    +Name: String
+    +NationalId: String
+    +Phone: String
+    +Password: String
+
+    +login(userName:  String,password: String):Boolean
+    +User():User
+}
+
+class Passenger {
+    +savedPayments: PaymentMethod [0..*]
+    +buy(train,Tier,departure,arrival,paymentMethod): Ticket
+    +cancel(Ticket): Boolean
+    '+navigatePassengerPanel():void
+}
+
+Passenger o-- PaymentMethod
+interface PaymentMethod {
+    +processPayment(amount:int): Boolean
+    +refund(amount:int): Boolean
+}
+
+class CreditCard {
+    +Integer: String
+    '+expirationDate: DateTime
+    +cvv: String
+}
+class PayPal {
+    +email: String
+    +password: String
+} 
+class MobileWallet {
+    +phone: String
+    +password: String
+}
+PaymentMethod <|-- CreditCard 
+PaymentMethod <|-- PayPal 
+PaymentMethod <|-- MobileWallet 
+
+class Admin {
+    +addTrain(Train):Boolean
+    +removeTrain(Train):Boolean
+    +removeUser(User):Boolean
+    +Admin():Admin
+    
+}
+User <|-- Admin
+Ticket *-- Passenger : owns
+User <|-- Passenger 
+
+/'
+Purchase *-- Passenger
+Purchase *-- Ticket
+'/
+
+class DB <<static>>{
+    +{static} users:User[0..*]
+    +{static} journeys:Journey[0..*]
+    +{static} tickets:Ticket[0..*]
+    +{static} passengers:Passenger[0..*]
+    +{static} trains:Train[0..*]
+    +{static} trainStations:TrainStation[0..*]
+}
+note top : this should be removed and the functions will call the database
+
+/' TODO remove static class and database '/
+
+@enduml

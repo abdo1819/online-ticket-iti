@@ -1,0 +1,41 @@
+@startuml sequance
+actor user 
+' participant user
+participant passenger 
+participant paymentMethod
+participant journey
+participant train
+participant trainStation
+
+user -> passenger : buy(Train,tier, departure,arrival,paymentMethod)
+activate user
+activate passenger
+        passenger -> train : findSeat (tier)
+        activate train
+            train -> passenger : Seat
+        deactivate train
+        passenger -> journey : getPrice(tier)
+        activate journey
+            journey -> train : getPrice(departure,arrival,tier)
+            activate train
+                train -> trainStation : getDistance(departure,arrival)
+                activate trainStation
+                    trainStation -> train : distance
+                deactivate trainStation
+                train -> journey : price
+            deactivate train
+            journey -> passenger : price
+        deactivate journey
+        passenger -> paymentMethod : processPayment(price)
+        activate paymentMethod
+            paymentMethod -> passenger : success
+        deactivate paymentMethod
+        passenger -> train : reverse seat
+        activate train
+            train -> passenger : seat
+        deactivate train
+        passenger -> user : ticket
+deactivate passenger
+deactivate user
+
+@enduml
