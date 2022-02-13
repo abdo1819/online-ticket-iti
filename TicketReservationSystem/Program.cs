@@ -20,14 +20,14 @@ namespace TicketReservationSystem
             };
             DataBase.trains.Add(new Train(100, 20, 20, 40, stations, new TimeSpan(2, 0, 0)));
             ////////////////////////////////////////////////////////////////////////////
-            
+
             // creating the admin user
             var User = new Admin(120, "admin", 23454, "admin@D.com", "admin", "nothing");
             DataBase.Users.Add(User);
 
             while (true)
-            {         
-                while(true)
+            {
+                while (true)
                 {
                     string Choice = Register_Or_Login();
                     if (Choice == "register")
@@ -60,7 +60,7 @@ namespace TicketReservationSystem
                                     int action = Take_Action();
                                     var admin = (Admin)login;
 
-                                    if(action == 0)
+                                    if (action == 0)
                                     {
                                         Signning_Out();
                                         break;
@@ -92,7 +92,7 @@ namespace TicketReservationSystem
                                                 Console.WriteLine("\nDeleted\n");
                                             else
                                                 Console.Write("\nNO TRAIN WITH THIS ID\n");
-                                            
+
                                             break;
                                     }
                                 }
@@ -104,10 +104,11 @@ namespace TicketReservationSystem
                                 int trip, trips = 0;
 
                                 Console.Clear();
-                                Get_Stations(out Station_1, out Station_2);                         
+                                Get_Stations(out Station_1, out Station_2);
+                                Console.Clear();
                                 Console.WriteLine("Available Journeys for your search: \n");
                                 var availTrains = Train.GetAvailableTrains(Station_1, Station_2);
-                                foreach (Train? train in availTrains )
+                                foreach (Train? train in availTrains)
                                 {
                                     Console.WriteLine($"####### [ {++trips} ] ######");
                                     Console.WriteLine(train);
@@ -117,18 +118,18 @@ namespace TicketReservationSystem
                                     available = true;
                                 }
 
-                                if(available)
+                                if (available)
                                 {
                                     do
                                     {
                                         Console.WriteLine("\nplease pick the number of your suitable journey:");
-                                    } while (!int.TryParse(Console.ReadLine(), out trip) && trip <= availTrains.Count && trip > 0 );
+                                    } while (!int.TryParse(Console.ReadLine(), out trip) && trip <= availTrains.Count && trip > 0);
 
-                                    var chosenTrip = availTrains[trip-1]; // Chosen train for passenger
+                                    var chosenTrip = availTrains[trip - 1]; // Chosen train for passenger
                                     var availFirstSeats = new List<Seat>();
                                     var availSecondSeats = new List<Seat>();
                                     int choice = 0;
-                                    chosenTrip.AvailableSeats(out availFirstSeats,out availSecondSeats);
+                                    chosenTrip.AvailableSeats(out availFirstSeats, out availSecondSeats);
                                     do
                                     {
                                         Console.Clear();
@@ -137,12 +138,8 @@ namespace TicketReservationSystem
                                         Console.WriteLine("\nplease pick the seat tier (1 for First class), (2 for Second Class):");
                                     } while (!int.TryParse(Console.ReadLine(), out choice) && choice != 1 && choice != 2);
 
-                                    var chosenSeat = chosenTrip.findSeat(choice);
-                                    //Create object of journey
 
-                                    var userJourney = new Journey((User2.NationalID + 100), chosenTrip.DepartureTime,chosenTrip, Station_1, Station_2, chosenSeat);
-
-
+                                    IPaymentMethod Chosen_Method = null;
                                     Choice = Choose_Payment_Method();
                                     Passenger equalPasseneger = (Passenger)login;
 
@@ -150,33 +147,74 @@ namespace TicketReservationSystem
                                     {
                                         bool found = HasCredit(equalPasseneger);
 
+                                        foreach (var method in equalPasseneger.Payment_Methods)
+                                        {
+                                            if (method.GetType().Name == "CreditCard")
+                                                Chosen_Method = method;
+                                        }
+
                                         if (!found)
                                         {
                                             CreditCard creditcard = Create_Credit_card();
                                             equalPasseneger.Payment_Methods.Add(creditcard);
+                                            Chosen_Method = creditcard;
                                         }
+
                                     }
                                     else if (Choice == "paypal")
                                     {
                                         bool found = HasPaypal(equalPasseneger);
 
+                                        foreach (var method in equalPasseneger.Payment_Methods)
+                                        {
+                                            if (method.GetType().Name == "Paypal")
+                                                Chosen_Method = method;
+                                        }
                                         if (!found)
                                         {
                                             Paypal paypal_account = Create_Paypal_Account();
                                             equalPasseneger.Payment_Methods.Add(paypal_account);
+                                            Chosen_Method = paypal_account;
                                         }
                                     }
                                     else
                                     {
                                         bool found = HasMobilWallet(equalPasseneger);
+                                        foreach (var method in equalPasseneger.Payment_Methods)
+                                        {
+                                            if (method.GetType().Name == "MobilWallet")
+                                                Chosen_Method = method;
+                                        }
 
                                         if (!found)
                                         {
                                             MobilWallet mobil_wallet = Create_Mobil_Wallet();
                                             equalPasseneger.Payment_Methods.Add(mobil_wallet);
+                                            Chosen_Method = mobil_wallet;
                                         }
                                     }
                                     // Buying ticket
+                                    Ticket passTicket = null;
+                                    string confirm = null;
+                                    do
+                                    {
+                                        Console.WriteLine($"Please confirm your purchase "+
+                                            $"Press Y to confirm or N to abort"); 
+                                        confirm = Console.ReadLine();
+                                    }
+                                    while (confirm.ToLower() != "y" && confirm.ToLower() != "n" && confirm != null);
+                                    if (confirm.ToLower() == "y")
+                                    {
+                                        passTicket = equalPasseneger.buy(chosenTrip, choice, Station_1, Station_2, Chosen_Method);
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Payment cancelled");
+                                    }
+
+                                    if (passTicket != null)
+                                        Console.WriteLine(passTicket);
+                                    Console.ReadLine();
                                 }
                                 else
                                 {
@@ -191,7 +229,7 @@ namespace TicketReservationSystem
                         }
                     }
                 }
-            }            
+            }
         }
     }
 }

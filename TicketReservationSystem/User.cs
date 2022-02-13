@@ -53,8 +53,22 @@ namespace TicketReservationSystem
 
         }
 
-        public Ticket buy(Journey journey, Tier tier,IPaymentMethod paymentMethod){
-            throw new NotImplementedException();
+        public Ticket? buy(Train chosenTrip, int choice, TrainStation departure,TrainStation arrival, IPaymentMethod paymentMethod)
+        {
+            var chosenSeat = chosenTrip.findSeat(choice);
+
+            var userJourney = new Journey(this.NationalID + 100, chosenTrip.DepartureTime, chosenTrip, departure, arrival, chosenSeat);
+
+            if (paymentMethod.ProcessPayment(userJourney.getPrice(choice)))
+            {
+                
+                    chosenTrip.ReserveSeat(chosenSeat);
+                    return new Ticket((this.NationalID * 10).ToString(),
+                        userJourney.getPrice(choice), this, DateTime.Now, paymentMethod, userJourney);
+            }
+                
+            else
+                return null;
         }
         public bool cancel(Ticket ticket){
             throw new NotImplementedException();

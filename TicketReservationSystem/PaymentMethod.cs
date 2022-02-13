@@ -10,7 +10,7 @@ namespace TicketReservationSystem
 {
     internal interface IPaymentMethod
     {
-        bool ProcessPayment(int amount);
+        bool ProcessPayment(decimal amount);
         bool Refund(Ticket ticket);
     }
 
@@ -23,7 +23,7 @@ namespace TicketReservationSystem
         }
         public string Email { get; set; }
         public string Password { get; set; }
-        public bool ProcessPayment(int amount)
+        public bool ProcessPayment(decimal amount)
         {
             Console.WriteLine("Proccessing...");
             Console.WriteLine($"Withdrawing {amount}...");
@@ -46,7 +46,7 @@ namespace TicketReservationSystem
         public int Number { get; set; }
         public int CVV{ get; set; }
 
-        public bool ProcessPayment(int amount)
+        public bool ProcessPayment(decimal amount)
         {
             Console.WriteLine("Proccessing...");
             Console.WriteLine($"Withdrawing {amount}...");
@@ -69,7 +69,7 @@ namespace TicketReservationSystem
 
         public int Phone { get; set; }
         public String Password { get; set; }
-        public bool ProcessPayment(int amount)
+        public bool ProcessPayment(decimal amount)
         {
             Console.WriteLine("Proccessing...");
             Console.WriteLine($"Withdrawing {amount}...");

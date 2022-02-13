@@ -26,10 +26,11 @@ namespace TicketReservationSystem
             Seat = _Seat;
         }
 
-        //public decimal getPrice()
-        //{
-        //    return JTrain.GetPrice(StartStation, EndStation, );
-        //}
+        public decimal getPrice(int tier)
+        {
+            JTrain.GetPrice(StartStation, EndStation, out decimal t1_price, out decimal t2_price);
+            return tier == 1 ? t1_price : t2_price;
+        }
 
         public TimeSpan getEstimateArrivalTime() // TODO: Make this return TimeSpan in UML
         {
