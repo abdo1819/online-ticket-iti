@@ -25,13 +25,6 @@ namespace TicketReservationSystem
         public string Password { get; }
         public string Address {get; set;}
 
-        public static bool login(string userName,string password){
-            // TODO 0156 move communicatino with database to User class
-            throw new NotImplementedException();
-        }
-        public static void NavigatePassenger(){
-            throw new NotImplementedException();
-        }
     }
 
     internal class Passenger : User
