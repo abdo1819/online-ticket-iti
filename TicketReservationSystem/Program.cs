@@ -19,6 +19,7 @@ namespace TicketReservationSystem
             {
                 while (true)
                 {
+                    #region Login
                     string Choice = Register_Or_Login();
                     if (Choice == "register")
                     {
@@ -41,7 +42,8 @@ namespace TicketReservationSystem
                         else
                         {
                             Signning_In(login);
-
+                    #endregion
+                    #region admin
                             if (login?.Name == "admin" && login?.Password == "admin")
                             {
                                 while (true)
@@ -87,8 +89,11 @@ namespace TicketReservationSystem
                                     }
                                 }
                             }
+                            #endregion
+                    #region passenger
                             else
                             {
+                            #region select_station_tier
                                 TrainStation? Station_1, Station_2;
                                 bool available = false;
                                 int trip, trips = 0;
@@ -107,7 +112,8 @@ namespace TicketReservationSystem
                                     Console.WriteLine($"Second tier price: {(int)Second} EGP");
                                     available = true;
                                 }
-
+                                #endregion
+                                #region payment
                                 if (available)
                                 {
                                     do
@@ -127,8 +133,7 @@ namespace TicketReservationSystem
                                         Console.WriteLine($"The available number of second class seats is {availSecondSeats.Count}");
                                         Console.WriteLine("\nplease pick the seat tier (1 for First class), (2 for Second Class):");
                                     } while (!int.TryParse(Console.ReadLine(), out choice) && choice != 1 && choice != 2);
-
-
+                                 
                                     IPaymentMethod Chosen_Method = null;
                                     Choice = Choose_Payment_Method();
                                     Passenger equalPasseneger = (Passenger)login;
@@ -207,6 +212,8 @@ namespace TicketReservationSystem
                                         Console.WriteLine(passTicket);
                                     Console.ReadLine();
                                 }
+                                #endregion
+                                #region failed_selection
                                 else
                                 {
                                     Console.WriteLine("\nProcessing...");
@@ -216,7 +223,9 @@ namespace TicketReservationSystem
                                     Thread.Sleep(1000);
                                     Console.Clear();
                                 }
+                                #endregion
                             }
+                            #endregion
                         }
                     }
                 }
