@@ -48,6 +48,7 @@ namespace TicketReservationSystem
                             {
                                 while (true)
                                 {
+                                    #region take admin action
                                     Thread.Sleep(1000);
                                     int action = Take_Action();
                                     var admin = (Admin)login;
@@ -57,6 +58,8 @@ namespace TicketReservationSystem
                                         Signning_Out();
                                         break;
                                     }
+                                    #endregion
+                                    #region handle admin action
 
                                     switch (action)
                                     {
@@ -87,6 +90,7 @@ namespace TicketReservationSystem
 
                                             break;
                                     }
+                                    #endregion
                                 }
                             }
                             #endregion
@@ -213,7 +217,7 @@ namespace TicketReservationSystem
                                     Console.ReadLine();
                                 }
                                 #endregion
-                                #region failed_selection
+                            #region failed_selection
                                 else
                                 {
                                     Console.WriteLine("\nProcessing...");
